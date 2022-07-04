@@ -1,15 +1,14 @@
 import * as UI from "@material-ui/core";
 import React from "react";
-import { useState } from "react";
 import './App.css';
 
 function App() {
   const styleObj = {
-    color: "#1ddbc0",
+    color: "WHITE",
     textAlign: "center",
 }
   const [data, setData] = React.useState(null);
-  const[text,setText]  = useState('');
+  const[text,setText]  = React.useState('');
   React.useEffect(() => {
     fetch("/api")
       .then((res) => res.json())
@@ -19,7 +18,7 @@ function App() {
 const handleSubmit = (e) => {
     e.preventDefault();
     const newText= { text };
-    fetch("/api", {
+    fetch("/", {
       method: "POST",
       headers: {"Content-Type": "application/JSON"},
       body: JSON.stringify(newText)
