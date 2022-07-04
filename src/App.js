@@ -1,11 +1,42 @@
-import TextField from "@material-ui/core/TextField";
+import * as UI from "@material-ui/core";
+import React from "react";
+import { useState } from "react";
 import './App.css';
 
 function App() {
+  const styleObj = {
+    color: "#1ddbc0",
+    textAlign: "center",
+}
+  const [data, setData] = React.useState(null);
+  const[text,setText]  = useState('');
+  React.useEffect(() => {
+    fetch("/api")
+      .then((res) => res.json())
+      .then((data) => setData(data.message));
+  }, []);
+  
+const handleSubmit = (e) => {
+    e.preventDefault();
+    const newText= { text };
+    fetch("/api", {
+      method: "POST",
+      headers: {"Content-Type": "application/JSON"},
+      body: JSON.stringify(newText)
+    })
+}
   return (
     <div className="App">
       <header className="App-header">
-        <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+      <p className="title">{!data ? "Loading...": data}</p>
+      <form onSubmit={handleSubmit}>
+        <UI.TextField style={{margin : "10px"}} id="outlined-basics" value= {text} label="Snowflake Url" variant="outlined" onChange={(e)=>setText(e.target.value)}/><br></br>
+        <UI.TextField id="outlined-basics" label = "User Name" variant="outlined" />
+        <br></br>
+        <UI.TextField style={{margin : "10px"}} type="password" id="outlined-basics" label = "Password" variant="outlined" />
+        <br></br>
+        <UI.Button style={styleObj} id="Contained"  variant="contained" label="Submit">Submit</UI.Button>
+        </form>
       </header>
     </div>
   );

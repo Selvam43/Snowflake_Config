@@ -13,8 +13,23 @@
   }
 }
 
+.title{
+  color: #1f1f1f;
+  position: relative;
+  top : 10px
+}
+
+#outlined-basics {
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+#Contained{
+  background-color: #316860;
+  font-size: 14px;
+}
 .App-header {
-  background-color: #282c34;
+  background-color: #e4edff;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
