@@ -12,6 +12,9 @@ app.get("/api", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
 });
-app.post("/api", function(req, res){
-    res.send(req.body);
+app.post("/", function(req, res){
+    const { Text } = req.body;
+    res.send(Text);
+    console.log(req.body);      // your JSON
+   res.send(req.body);
 });
