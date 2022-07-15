@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 8001;
 const app = express();
 
 app.get("/api", (req, res) => {
-    res.json({ message: "SNOWFLAKE CONNECT" });
+    res.json({ message: "Login" });
   });
 app.listen(PORT, () => {
   console.log(`Server listening on ${PORT}`);
