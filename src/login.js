@@ -37,6 +37,7 @@ export default function Login() {
     <p className="title">{!data ? "Loading...": data}</p>
     <form onSubmit={handleSubmit}>
       {/* <UI.TextField style={{margin : "10px"}} id="URL"  label="Snowflake Url" variant="outlined"/><br></br> */}
+      
       <UI.TextField id="URL" label = "User Name"  variant="outlined" />
       <br></br>
       <UI.TextField style={{margin : "10px"}} type="password" id="outlined-basics" label = "Password" variant="outlined" />
