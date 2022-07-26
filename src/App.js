@@ -10,7 +10,7 @@ function App() {
     return <Login setToken={setToken} />
   }
   return (
-    <div></div>    
+    <div><h1>Dashboard</h1></div>    
   );
 }
 
